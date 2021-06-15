@@ -1,0 +1,478 @@
+@import "../css/fonts.css";
+@import "variables.scss";
+@import "mixins.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    background-color: #000;
+    color: #fff;
+}
+
+.container {
+    max-width: 1110px;
+    margin: 0 auto;
+}
+
+.container-title {
+    @include section_title;
+}
+
+.btn {
+    padding: 12px 28px;
+    color: #fff;
+    border: 1px solid;
+    @include PTSant_reg(18px, sans-serif);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+
+    &:hover {
+        background: rgba($color: #fff, $alpha: .2);
+    }
+}
+
+.menu-btn {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.menu-btn span {
+    position: absolute;
+    margin-top: -2px;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 1px;
+    background-color: #fff;
+    transition: 0.5s;
+}
+
+.menu-btn .top {
+    top: 18px;
+}
+
+.menu-btn .bot {
+    top: 32px;
+}
+
+.menu-btn_active span.mid {
+    display: none;
+}
+
+.menu-btn_active span.top {
+    transform: rotate(-45deg);
+    top: 50%;
+    transform-origin: center center;
+}
+
+.menu-btn_active span.bot {
+    transform: rotate(45deg);
+    top: 50%;
+    transform-origin: center center;
+}
+
+.product {
+    @include dFlex;
+
+    &-item {
+        img {
+            width: 100%;
+            padding: 36px 10px;
+            background-color: $productBg;
+        }
+
+        .description {
+            p {
+                &:first-child {
+                    @include PlayfairDisplay(18px);
+                    margin: 25px 0 10px;
+                }
+
+                &:last-child {
+                    @include PlayfairDisplay(16px);
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.header {
+    &-top {
+        .container {
+            @include dFlex;
+            color: $linkColor;
+
+            .contacts {
+                margin-top: 14px;
+                margin-bottom: 14px;
+                margin-left: 28px;
+                position: relative;
+
+                &::before {
+                    @include beforeImg (13px, 13px);
+                    background-image: url(../img/phone.svg);
+                    left: -25px;
+                    top: 4px;
+                }
+
+                span {
+                    @include PTSant_reg (12px, sans-serif);
+
+                    &:first-child {
+                        padding-right: 15px;
+                    }
+
+                    &:nth-child(2) {
+                        padding: 0 15px;
+                        border-left: 1px solid;
+                        border-right: 1px solid;
+                    }
+
+                    &:last-child {
+                        padding-left: 15px;
+                    }
+                }
+            }
+
+            .login {
+                @include PTSant_reg (12px, sans-serif);
+                position: relative;
+                color: $linkColor;
+
+                &:hover {
+                    color: #fff;
+                }
+
+                &::before {
+                    @include beforeImg (13px, 13px);
+                    background-image: url(../img/login.svg);
+                    left: -25px;
+                    top: 2px;
+                }
+            }
+        }
+
+    }
+
+    &-bott {
+        background-color: $lightBg;
+
+        .container {
+            @include dFlex;
+
+            .logo {
+                color: #fff;
+                @include PostNoBills(36px);
+                text-transform: uppercase;
+            }
+
+            div {
+                @include dFlex;
+
+                .nav {
+                    &-item {
+                        .nav-link {
+                            display: inline-block;
+
+                            a {
+                                @include PTSant_reg(14px, sans-serif);
+                                text-transform: uppercase;
+                                padding: 23px 31px;
+                                color: $linkColor;
+
+                                &:hover {
+                                    background-color: #1F1F1F;
+                                    color: #fff
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .cart_search {
+                    a {
+                        margin-left: 40px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main {
+    .first-screen {
+        width: 100%;
+        padding-top: 160px;
+        padding-bottom: 154px;
+        background-image: url('../img/bg.png');
+        background-size: cover;
+        background-position: center;
+
+        .logo {
+            width: 320px;
+            margin: 0 auto;
+            padding: 107px 63px;
+            color: #fff;
+            border: 3px solid;
+            text-align: center;
+
+            h1 {
+                @include PostNoBills(64px);
+                border-bottom: 2px solid;
+                text-transform: uppercase;
+                display: inline-block;
+                line-height: 1;
+            }
+
+            p {
+                @include PTSant_reg(22px, sans-serif);
+                padding-top: 7px;
+            }
+        }
+
+        .description {
+            @include PTSant_reg(16px, sans-serif);
+            text-transform: uppercase;
+            margin: 80px auto 0;
+            width: 60%;
+            color: #fff;
+            text-align: center;
+        }
+    }
+
+    .collection-2021 {
+        width: 100%;
+
+        // @include dFlex(center);
+
+        .new-season {
+            width: 55%;
+            color: #fff;
+            padding: 93px 0;
+            float: left;
+
+            .product {
+                margin: 40px auto;
+                @include dFlex(space-around);
+                flex-wrap: nowrap;
+
+                &-item {
+                    margin: 0 20px;
+                }
+            }
+        }
+
+        .new-collection {
+            float: left;
+            width: 45%;
+            padding: 484px 0 100px;
+            background-image: url('../img/new-collection.png');
+            background-size: cover;
+            background-position: center left;
+            text-align: center;
+            color: #fff;
+
+            h2 {
+                margin-bottom: 42px;
+            }
+        }
+    }
+
+    .collection-2018 {
+        width: 100%;
+        // @include dFlex(center);
+
+        .season_img {
+            float: left;
+            width: 45%;
+            height: 600px;
+            background-image: url('../img/old-collection.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .season_description {
+            float: right;
+            width: 55%;
+            padding-top: 84px;
+
+            div {
+                width: 55%;
+                margin: 0 auto;
+
+                @include dFlex;
+                flex-direction: column;
+
+                p {
+                    @include PTSant_reg(14px, sans-serif);
+                    margin-top: 40px;
+                    margin-bottom: 63px;
+                    text-align: center;
+                }
+            }
+
+
+
+        }
+    }
+
+    .new-goods {
+        .container {
+            padding-top: 110px;
+            padding-bottom: 110px;
+
+            &::before {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            &-title {
+                margin-top: 95px;
+            }
+
+            .product {
+                margin-top: 81px;
+                @include dFlex;
+
+                &-item {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+    .our-brands {
+        background-color: $lightBg;
+
+        .container {
+            padding-top: 60px;
+            padding-bottom: 74px;
+
+            .brands {
+                margin-top: 40px;
+                @include dFlex;
+            }
+        }
+    }
+
+    .footer {
+        &-top {
+            background-image: url('../img/footerBg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+
+            .container {
+                padding-top: 80px;
+                padding-bottom: 100px;
+                @include dFlex(space-between, flex-start);
+
+                div {
+                    h3 {
+                        @include PlayfairDisplay(24px);
+                        text-transform: uppercase;
+                        font-weight: normal;
+                        margin-bottom: 40px;
+                    }
+
+                    &:first-child,
+                    &:last-child {
+                        width: 350px;
+                    }
+                }
+
+                .about_shop {
+                    p {
+                        @include PTSant_reg (14px, sans-serif);
+                        line-height: 20px;
+                    }
+                }
+
+                .categories {
+                    &-item {
+                        @include dFlex(flex-start);
+
+                        a {
+                            margin: 0 20px 20px 0;
+                            padding: 10px 20px;
+                            color: $linkColor;
+                            background-color: #000;
+                            @include PTSant_reg (14px, sans-serif);
+
+                            &:hover {
+                                background-color: #1F1F1F;
+                            }
+                        }
+                    }
+                }
+
+                .mailing {
+                    p {
+                        @include PTSant_reg (14px, sans-serif);
+                        line-height: 20px;
+                        margin-bottom: 37px;
+                    }
+
+                    .mail {
+                        @include dFlex(flex-start);
+
+                        input {
+                            width: 58%;
+                            padding: 10px 20px;
+                            @include PTSant_reg (14px, sans-serif);
+                            background-color: rgba($color: #fff, $alpha: .3);
+                            color: #fff;
+                            border: none;
+
+                            &::placeholder {
+                                color: $linkColor;
+                            }
+                        }
+
+                        button {
+                            width: 42%;
+                            padding: 10px 20px;
+                            background-color: #000;
+                            color: #fff;
+                            border: none;
+                            cursor: pointer;
+                            @include PTSant_reg(14px, sans-serif);
+                            text-align: center;
+                            text-transform: uppercase;
+
+                            &:hover {
+                                background-color: #1F1F1F;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .copy {
+            .container {
+                padding-top: 17px;
+                padding-bottom: 17px;
+
+                p {
+                    @include PTSant_reg(12px, sans-serif);
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

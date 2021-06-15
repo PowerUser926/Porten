@@ -1,0 +1,45 @@
+@mixin dFlex ($justify: space-between, $align: center) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin beforeImg ($w: 20px, $h: 20px) {
+    content: "";
+    position: absolute;
+    height: $h;
+    width: $w;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin PTSant_reg ($fs: 14px, $ff: serif) {
+    font-family: 'pt_sansregular', $ff;
+    font-size: $fs;
+    letter-spacing: 0.5px;
+}
+
+@mixin PlayfairDisplay ($fs: 14px) {
+    font-family: 'playfair_displayregular', serif;
+    font-size: $fs;
+    letter-spacing: 0.5px;
+}
+
+@mixin PostNoBills ($fs: 14px){
+    font-family: 'post_no_bills_jaffnabold';
+    font-size: $fs;
+    letter-spacing: 0.5px;
+}
+
+@mixin section_title {
+    @include PlayfairDisplay(36px);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 30px;
+    background-image: url('../img/Line.svg');
+    background-repeat: no-repeat;
+    background-size: 120px;
+    background-position: center bottom;
+}
